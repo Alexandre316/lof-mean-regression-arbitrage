@@ -34,6 +34,8 @@ Due to the small market trading volume, the amount of funds for feasible arbitra
   - Summary the account profit and loss result at a daily basis;
   - Get  "to ASK" LOFs on the next trading date: 1) negative premium; 2) discount ratio is smaller than the mean of discount ratio minus one standard deviation;
 
+![small-scale](./Plots/Arbitrage(SmallScale).png)
+
 
 ## What About Larger?
 
