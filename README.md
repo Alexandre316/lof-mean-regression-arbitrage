@@ -41,7 +41,7 @@ When the initial comes to 300000CNY, things got much worse. Reasons below are to
 
 I have recorded all the results the 'Plots' file and the 'Output' file. For more details, please refer to my project. 
 
-![image-20220430134531114](\Plots\AccountBalance(WeeklyNormal).png)
+![image-20220430134531114](./Plots/AccountBalance(WeeklyNormal).png)
 
 ## Results of Different Discount Ratio Groups
 
@@ -55,7 +55,7 @@ I grouped all LOF by discount ratio, and the result reveals that (-4%,-2%) group
 | **ub**(%)         | -8.0000      | -6.0000      | -4.0000      | -2.0000      | -1.0000      | -0.5000      | 0.0000       | 0.5000       | 1.0000       | 2.0000       | 4.0000        | 6.0000        | 8.0000        | 10.0000       |
 | **lb**(%)         | -10.0000     | -8.0000      | -6.0000      | -4.0000      | -2.0000      | -1.0000      | -0.5000      | 0.0000       | 0.5000       | 1.0000       | 2.0000        | 4.0000        | 6.0000        | 8.0000        |
 
-![image-20220430132635545](\Plots\GroupAccountBalance\AccountBalance(Normal).png)
+![image-20220430132635545](./Plots/GroupAccountBalance/AccountBalance(Normal).png)
 
 ## Defects and Improvements
 
