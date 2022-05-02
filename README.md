@@ -1,24 +1,16 @@
 # Mean Regression Arbitrage of Listed Open-Ended Funds
 
-## Intro
+## Why I did this?
 
-LOF adopts the trading mechanism of both floor trading and OTC trading, which provides investors with the floor trading price fluctuating around the net value of the fund (NAV). The NAV is calculated according to the net value of the portfolio assets on the day after the closing of the daily exchange, and the on-the-spot transaction is subject to the transaction price, which is based on the supply and demand relationship. The floor trading price is different from the NAV, and investors have the opportunity of arbitrage. Generally speaking: 
+LOF adopts the trading mechanism of both floor trading and OTC trading, which provides investors with the floor trading price fluctuating around the net value of the fund(NAV). The NAV is calculated according to the net value of the portfolio assets on the day after the closing of the daily exchange, and the on-the-spot transaction is subject to the transaction price, which is based on the supply and demand relationship. The floor trading price is different from the NAV, then investors have the opportunity of arbitrage. Generally speaking: 
 
-- At the end of each cycle, the LOF with the discount ratio of [- 0.075,0] would be purchased in the next cycle;
+- At the end of each cycle, the LOF with the discount ratio of [- 0.075,0] would be purchased at the beginning of next cycle;
 - For those that are to be purchased in the next cycle and in the current position, adjust the weights according to the target quantity; 
-- On the first trading day at the beginning of each cycle, buy the above LOF at some price (equal weighted). If there is no transaction on the day, we will bid continually until the transaction is concluded (but it may not buy enough target quantity);
+- On the first trading day at the beginning of each cycle, buy the above LOF at **some price** (equal weighted). If there is no transaction on the day, we will bid continually until the transaction is concluded (but it may not buy enough target quantity);
 - At the end of the cycle, those do not need to be bought in the next cycle shall be sold according to some price 
 - **Note: for different sell/buy price (open, close, high, low), time and volume, things could be quite different, and I will show them in the next sections**
 
-## Data Description and Params Settings
-
-- profit stop: 15%
-- loss stop: -5%
-- buy cost: 0.3%
-- sell cost: 0.3%
-- other cost: 0.1%
-
-## Feasible Arbitrage for Small Scale Funds
+## Feasible Arbitrage for Small Scale Funds (Individuals)
 
 Due to the small market trading volume, the amount of funds for feasible arbitrage strategy is small. Specifically:
 
@@ -34,16 +26,21 @@ Due to the small market trading volume, the amount of funds for feasible arbitra
   - Summary the account profit and loss result at a daily basis;
   - Get  "to ASK" LOFs on the next trading date: 1) negative premium; 2) discount ratio is smaller than the mean of discount ratio minus one standard deviation;
 
-![small-scale](./Plots/Arbitrage(SmallScale).png)
-
+![small-scale](./Plots/Arbitrage(SmallScale).png)  
+- Sharpe:1.22；Annual Return:16.11%；Max Drawdown:17.72%
+- Note that we traded in a much worse price and volume. In the real world, if we can bid/ask at a better price (middle, average price, etc.), Sharpe could be over 1.8 even 2
 
 ## What About Larger?
 
-When the initial comes to 300000CNY, things got much worse. Reasons below are to blame: 1) I could not buy enough volume of LOF due to the small market volume; 2) Ask larger, price worse. I tried to buy all LOFs at the highest price on the day, and it showed a unacceptable result.
-
-I have recorded all the results the 'Plots' file and the 'Output' file. For more details, please refer to my project. 
-
+- Discount ratio, premium ratio, all price come from Wind. The backtest goes at a weekly basis;
+- Settings: 1) Initial: 300000CNY; 2) buy/sell cost: 0.3%; 3) other cost: 0.1%; 4) profit stop: 15%; 5) loss stop: -5%;
+- Sell on the last day of a trading week, and buy at the first trading day per week;
+- Buy price: average price(better than the lowest price); sell price: close;
+- Trade volume is subjected to the real trading volume;
+- I have recorded all the results the 'Plots' file and the 'Output' file. For more details, please refer to my project.  
 ![image-20220430134531114](./Plots/AccountBalance(WeeklyNormal).png)
+- Sharpe:1.15；Annual Return:17.84%；Max Drawdown:22.17%
+- When the initial comes to 300000CNY, things got much worse. Reasons below are to blame: 1) I could not buy enough volume of LOF due to the small market volume; 2) Ask larger, price worse. I tried to buy all LOFs at the highest price on the day, and it showed a unacceptable result.
 
 ## Results of Different Discount Ratio Groups
 
