@@ -38,6 +38,7 @@ Due to the small market trading volume, the amount of funds for feasible arbitra
 - Buy price: average price(better than the lowest price); sell price: close;
 - Trade volume is subjected to the real trading volume;
 - I have recorded all the results the 'Plots' file and the 'Output' file. For more details, please refer to my project.  
+
 ![image-20220430134531114](./Plots/AccountBalance(WeeklyNormal).png)
 - Sharpe:1.15；Annual Return:17.84%；Max Drawdown:22.17%
 - When the initial comes to 300000CNY, things got much worse. Reasons below are to blame: 1) I could not buy enough volume of LOF due to the small market volume; 2) Ask larger, price worse. I tried to buy all LOFs at the highest price on the day, and it showed a unacceptable result.
